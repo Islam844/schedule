@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -81,14 +85,16 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Здравствуйте, Джон Смит Тимофеевич</span>
+              <span class="hidden-xs">Здравствуйте, <?php echo $_SESSION['fio'] . "<br>"; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
                 <p>
-                  Джон Смит Тимофеевич
-                  Администратор
+                  <?php 
+                    echo $_SESSION['fio'] . "<br>";
+                    echo $_SESSION['roleName'];
+                  ?>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -97,7 +103,10 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Профиль</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Выход</a>
+                  <form method="POST">
+                    <button type="submit" class="btn btn-default btn-flat" name="out">Выход</button>
+                  </form>
+                  <!-- <a href="#" class="btn btn-default btn-flat">Выход</a>-->
                 </div>
               </li>
             </ul>
