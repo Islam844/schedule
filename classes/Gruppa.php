@@ -9,7 +9,14 @@ class Gruppa extends Table {
     public $date_end = '';
     
     public function validate() {
-        return false;
+      if (!empty($this->name) &&
+        !empty($this->special_id)&&
+        !empty($this->date_begin)&&
+        !empty($this->date_end)) 
+      {
+        return true;
+      }
+      return false;
     }
 
 }
