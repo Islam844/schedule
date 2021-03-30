@@ -1,5 +1,5 @@
 <?php
-class TeacherMap extends BaseMap 
+class TeacherMap extends BaseMap
 {
   private function insert(Teacher $teacher)
   {

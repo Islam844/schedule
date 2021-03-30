@@ -22,7 +22,7 @@ class SubjectMap extends BaseMap {
     }
   }
 
-  public function arrGrupps()
+  public function arrSubjects()
   {
     $res = $this->db->query("SELECT subject_id AS id, name AS value FROM subject");
     return $res->fetchAll(PDO::FETCH_ASSOC);

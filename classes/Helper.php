@@ -38,5 +38,27 @@ class Helper
       }
     echo '</ul>';
   }
+
+  static function setFlash($message = "")
+  {
+    $_SESSION['flash'] = $message;
+  }
+
+  static function getFlash()
+  {
+    $msg = $_SESSION['flash'];
+    $_SESSION['flash'] = '';
+    return $msg;
+  }
+
+  static function hasFlash()
+  {
+    return (!empty($_SESSION['flash'])) ? true : false;
+  }
+
+  static function can($role)
+  {
+    return ($role === $_SESSION['role'])? true : false;
+  }
 }
 ?>

@@ -1,15 +1,20 @@
 <?php
   require_once 'secure.php';
+  if (!Helper::can('admin') && !Helper::can('manager')) {
+    header('Location: 404.php');
+    exit();
+  }
   $size = 10;
   if (isset($_GET['page'])) {
-  $page = Helper::clearInt($_GET['page']);
-  } else {
-  $page = 1;
+    $page = Helper::clearInt($_GET['page']);
+  } 
+  else {
+    $page = 1;
   }
   $classroomMap = new ClassroomMap();
   $count = $classroomMap->count();
   $classrooms = $classroomMap->findAll($page*$size-$size, $size);
-  $header = 'Список отделов';
+  $header = 'Список аудиторий';
   require_once 'template/header.php';
 ?>
 <div class="row">
